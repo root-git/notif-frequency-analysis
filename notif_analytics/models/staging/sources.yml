@@ -1,0 +1,26 @@
+# Purpose: tells dbt where the 5 raw tables physically live in BigQuery.
+# Loaded_at_field _freshness block is new vs the riginal plan - this is
+# dbt's built-in staleness check, run separately from row level tests via
+# `dbt source freshness`. In a real system this catches "the upstream load
+# job silently stopped running" - a different failure mode than bad data.
+
+version: 2
+
+sources:
+  - name: notif_raw
+    database: notif-frequency-analysis
+    schema: notif_raw
+    tables:
+      - name: raw_users
+      - name: raw_notifications_sent
+        loaded_at_field: sent_at
+        freshness:
+          warn_after: {count: 2, period: day}
+          error_after: {count: 5, period: day}
+      - name: raw_notification_events
+        loaded_at_field: event_at
+        freshness:
+          warn_after: {count: 2, period: day}
+          error_after: {count: 5, period: day}
+      - name: raw_unsubscribes
+      - name: raw_user_activity
