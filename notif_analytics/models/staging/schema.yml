@@ -11,3 +11,13 @@ models:
         tests: [unique, not_null]
       - name: user_id
         tests: [not_null]
+  - name: stg_notification_events
+    columns:
+      - name: event_id
+        tests: [unique, not_null]
+      - name: notification_id
+        tests: [not_null]
+  - name: stg_unsubscribes
+    columns:
+      - name: user_id
+        tests: [not_null]
