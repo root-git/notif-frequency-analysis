@@ -15,6 +15,8 @@ def validate(unsub_df, activity_df, users_df):
                    set(activity_df['user_id']) <= set(users_df['user_id'])))
     checks.append(("activity: activity_type only expected values", 
                    set(activity_df['activity_type'].unique()) <= {'app_open', 'session_end'}))
+    checks.append(("activity: activity_at parses as valid timestamp",
+                pd.to_datetime(activity_df['activity_at'], errors='coerce').notna().all()))
 
     return checks
 

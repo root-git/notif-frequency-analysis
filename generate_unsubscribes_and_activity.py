@@ -33,7 +33,7 @@ def generate_activity(users_df, n_days=ANALYSIS_DAYS):
             if np.random.random() < daily_open_prob:
                 start = ANALYSIS_START + timedelta(days=day, hours=np.random.uniform(0,24))
                 rows.append({'activity_id': f"a_{counter:07d}", 'user_id': user_id,
-                             'activity_at': start.strftime('%Y-%M-%d %H:%M:%S'), 'activity_type': 'session_end'})
+                             'activity_at': start.strftime('%Y-%m-%d %H:%M:%S'), 'activity_type': 'session_end'})
                 counter += 1
     return pd.DataFrame(rows)
 
