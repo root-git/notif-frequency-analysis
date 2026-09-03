@@ -2,26 +2,42 @@ version: 2
 
 models:
   - name: stg_users
+    description: One row per user, cleaned from the raw synthetic user table. Casts signup_date to a proper date type.
     columns:
       - name: user_id
+        description: Unique identifier for a user, format u_#####.
         tests: [unique, not_null]
   - name: stg_notifications_sent
+    description: One row per notification sent to a user, cleaned from the raw notifications table. Casts sent_at to a proper timestamp.
     columns:
       - name: notification_id
+        description: Unique identifier for a sent notification.
         tests: [unique, not_null]
       - name: user_id
+        description: The user this notification was sent to.
         tests: [not_null]
   - name: stg_notification_events
+    description: One row per event (delivered,/opened/clicked/dismissed) that happened to a sent notification.
     columns:
       - name: event_id
+        description: Unique identifier for a single event.
         tests: [unique, not_null]
       - name: notification_id
+        description: The notification this event happened to.
         tests: [not_null]
+      - name: event_type
+        description: The type of event - delivered, opened, clicked, dismissed.
+      - name: event_at
+        description: The timestamp when this even occurred.
   - name: stg_unsubscribes
+    description: One row per user who unsubscribed from a notification channel.
     columns:
       - name: user_id
+        description: The user who unsubscribed.
         tests: [not_null]
   - name: stg_user_activity
+    description: One row per organic in-app activity event (app_open, session_end), independent of notifications.
     columns:
       - name: activity_id
+        description: Unique identifier for a single activity event.
         tests: [unique, not_null]
