@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: int_notifications_with_events
+    columns:
+      - name: notification_id
+        tests: [unique, not_null]
