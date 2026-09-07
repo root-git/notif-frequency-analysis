@@ -19,7 +19,7 @@ events_pivoted as (
 )
 
 select
-    n.notification_id, n.user_id, n.sent_at, n.channel, n.notification_type,
+    n.notification_id, n.user_id, n.sent_at, n.channel, n.notification_type, n.campaign_id,
     e.delivered_at, e.opened_at, e.clicked_at, e.dismissed_at,
     e.opened_at is not null as was_opened,
     e.clicked_at is not null as was_clicked,

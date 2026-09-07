@@ -6,3 +6,15 @@ models:
     columns:
       - name: user_id
         tests: [unique, not_null]
+
+  - name: fct_notifications
+    columns:
+      - name: notification_id
+        tests: [unique, not_null]
+      - name: user_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_users')
+                field: user_id
