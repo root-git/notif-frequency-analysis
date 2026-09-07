@@ -1,8 +1,56 @@
+# models/intermediate/schema.yml
 version: 2
 
 models:
   - name: int_notifications_with_events
+    description: One row per notification, joined with its pivoted event timestamps (delivered/opened/clicked/dismissed) and derived open/click flags.
     columns:
       - name: notification_id
+        description: Unique identifier for the notification.
         tests: [unique, not_null]
-  
+      - name: user_id
+        description: The user this notification was sent to.
+      - name: sent_at
+        description: Timestamp the notification was sent.
+      - name: channel
+        description: Delivery channel — push, email, or sms.
+      - name: notification_type
+        description: Category of notification — marketing, transactional, or reminder.
+      - name: campaign_id
+        description: The campaign this notification belongs to.
+      - name: delivered_at
+        description: Timestamp the notification was delivered, if it was.
+      - name: opened_at
+        description: Timestamp the notification was opened, if it was.
+      - name: clicked_at
+        description: Timestamp the notification was clicked, if it was.
+      - name: dismissed_at
+        description: Timestamp the notification was dismissed, if it was.
+      - name: was_opened
+        description: True if the notification has a non-null opened_at.
+      - name: was_clicked
+        description: True if the notification has a non-null clicked_at.
+
+  - name: int_user_weekly_notification_counts
+    description: One row per user per week, counting how many notifications that user was sent that week.
+    columns:
+      - name: user_id
+        description: The user this weekly count belongs to.
+      - name: week_start
+        description: The Monday-aligned start of the week this count covers.
+      - name: notifications_sent
+        description: Number of notifications sent to this user during this week.
+
+  - name: int_user_engagement_summary
+    description: One row per user, aggregating total notification and organic-activity engagement across the full analysis window.
+    columns:
+      - name: user_id
+        description: The user this summary belongs to.
+      - name: total_notifications
+        description: Total notifications sent to this user across the analysis window.
+      - name: total_opens
+        description: Total notifications opened by this user.
+      - name: total_clicks
+        description: Total notifications clicked by this user.
+      - name: total_app_opens
+        description: Total organic app_open activity events for this user, independent of notifications.

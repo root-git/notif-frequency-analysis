@@ -3,23 +3,67 @@ version: 2
 
 models:
   - name: dim_users
+    description: One row per user, with signup and unsubscribe attributes. Grain matches raw_users.
     columns:
       - name: user_id
+        description: Unique identifier for a user, format u_#####.
         tests: [unique, not_null]
+      - name: signup_date
+        description: Date the user signed up.
+      - name: country
+        description: User's country.
+      - name: plan_type
+        description: User's plan — free or pro.
+      - name: has_unsubscribed
+        description: True if the user has unsubscribed from any channel.
+      - name: unsubscribed_at
+        description: Timestamp of unsubscribe, if applicable.
 
   - name: fct_notifications
+    description: One row per notification sent, with delivery/engagement outcomes. Core fact table for notification-level analysis.
     columns:
       - name: notification_id
+        description: Unique identifier for the notification.
         tests: [unique, not_null]
       - name: user_id
+        description: The user this notification was sent to.
         tests:
           - not_null
           - relationships:
-              arguments:
-                to: ref('dim_users')
-                field: user_id
+              to: ref('dim_users')
+              field: user_id
+      - name: sent_at
+        description: Timestamp the notification was sent.
+      - name: channel
+        description: Delivery channel — push, email, or sms.
+      - name: notification_type
+        description: Category of notification — marketing, transactional, or reminder.
+      - name: campaign_id
+        description: The campaign this notification belongs to.
+      - name: was_opened
+        description: True if the notification was opened.
+      - name: was_clicked
+        description: True if the notification was clicked.
+      - name: delivered_at
+        description: Timestamp the notification was delivered, if it was.
+      - name: opened_at
+        description: Timestamp the notification was opened, if it was.
+      - name: clicked_at
+        description: Timestamp the notification was clicked, if it was.
+
   - name: fct_user_weekly_frequency
+    description: One row per user per week — notification volume, opens, clicks, and unsubscribe status for that week. Central fact table for the frequency-vs-engagement analysis.
     columns:
-      - name: notifications_sent 
+      - name: user_id
+        description: The user this weekly row belongs to.
+      - name: week_start
+        description: The Monday-aligned start of the week this row covers.
+      - name: notifications_sent
+        description: Number of notifications sent to this user during this week.
         tests: [not_null]
-         
+      - name: opens
+        description: Number of this week's notifications that were opened.
+      - name: clicks
+        description: Number of this week's notifications that were clicked.
+      - name: unsubscribed_this_week
+        description: True if the user unsubscribed during this week.
