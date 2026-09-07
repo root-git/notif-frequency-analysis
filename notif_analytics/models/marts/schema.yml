@@ -18,3 +18,8 @@ models:
               arguments:
                 to: ref('dim_users')
                 field: user_id
+  - name: fct_user_weekly_frequency
+    columns:
+      - name: notifications_sent 
+        tests: [not_null]
+         
