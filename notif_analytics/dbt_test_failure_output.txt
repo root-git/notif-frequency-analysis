@@ -1,0 +1,52 @@
+[0m02:07:50  Running with dbt=1.12.3
+[0m02:07:50  [[33mWARNING[0m][CustomKeyInConfigDeprecation]: Deprecated functionality
+Custom key `notif_analytics` found in `config` at path `notif_analytics` in file
+`/Users/lilyshih/notif-frequency-analysis/notif_analytics/dbt_project.yml`.
+Custom config keys should move into the `config.meta`.
+[0m02:07:50  Registered adapter: bigquery=1.12.0
+[0m02:07:50  Found 11 models, 22 data tests, 5 sources, 561 macros
+[0m02:07:50  
+[0m02:07:50  Concurrency: 4 threads (target='dev')
+[0m02:07:50  
+[0m02:07:52  4 of 7 START test not_null_stg_notifications_sent_user_id ...................... [RUN]
+[0m02:07:52  3 of 7 START test not_null_stg_notifications_sent_notification_id .............. [RUN]
+[0m02:07:52  2 of 7 START test not_null_fct_notifications_user_id ........................... [RUN]
+[0m02:07:52  1 of 7 START test not_null_fct_notifications_notification_id ................... [RUN]
+[0m02:07:54  4 of 7 PASS not_null_stg_notifications_sent_user_id ............................ [[32mPASS[0m in 2.10s]
+[0m02:07:54  3 of 7 PASS not_null_stg_notifications_sent_notification_id .................... [[32mPASS[0m in 2.10s]
+[0m02:07:54  5 of 7 START test relationships_fct_notifications_user_id__user_id__ref_dim_users_  [RUN]
+[0m02:07:54  6 of 7 START test unique_fct_notifications_notification_id ..................... [RUN]
+[0m02:07:54  2 of 7 PASS not_null_fct_notifications_user_id ................................. [[32mPASS[0m in 2.10s]
+[0m02:07:54  7 of 7 START test unique_stg_notifications_sent_notification_id ................ [RUN]
+[0m02:07:54  1 of 7 PASS not_null_fct_notifications_notification_id ......................... [[32mPASS[0m in 2.44s]
+[0m02:07:56  7 of 7 FAIL 20 unique_stg_notifications_sent_notification_id ................... [[31mFAIL 20[0m in 1.88s]
+[0m02:07:56  5 of 7 FAIL 15 relationships_fct_notifications_user_id__user_id__ref_dim_users_  [[31mFAIL 15[0m in 2.01s]
+[0m02:07:56  6 of 7 FAIL 20 unique_fct_notifications_notification_id ........................ [[31mFAIL 20[0m in 2.25s]
+[0m02:07:56  
+[0m02:07:56  Finished running 7 data tests in 0 hours 0 minutes and 5.81 seconds (5.81s).
+[0m02:07:56  
+[0m02:07:56  [31mCompleted with 3 errors, 0 partial successes, and 0 warnings:[0m
+[0m02:07:56  
+[0m02:07:56  [[31mERROR[0m]: in test unique_stg_notifications_sent_notification_id (models/staging/schema.yml)
+[0m02:07:56    Got 20 results, configured to fail if != 0
+[0m02:07:56  
+[0m02:07:56    compiled code at target/compiled/notif_analytics/models/staging/schema.yml/unique_stg_notifications_sent_notification_id.sql
+[0m02:07:56  
+[0m02:07:56  [[31mERROR[0m]: in test relationships_fct_notifications_user_id__user_id__ref_dim_users_ (models/marts/schema.yml)
+[0m02:07:56    Got 15 results, configured to fail if != 0
+[0m02:07:56  
+[0m02:07:56    compiled code at target/compiled/notif_analytics/models/marts/schema.yml/relationships_fct_notification_d0dc4d67b8007f8127bf5d64fe9dd146.sql
+[0m02:07:56  
+[0m02:07:56  [[31mERROR[0m]: in test unique_fct_notifications_notification_id (models/marts/schema.yml)
+[0m02:07:56    Got 20 results, configured to fail if != 0
+[0m02:07:56  
+[0m02:07:56    compiled code at target/compiled/notif_analytics/models/marts/schema.yml/unique_fct_notifications_notification_id.sql
+[0m02:07:56  
+[0m02:07:56  Done. PASS=4 WARN=0 ERROR=3 SKIP=0 NO-OP=0 REUSED=0 TOTAL=7
+[0m02:07:56  [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- CustomKeyInConfigDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
