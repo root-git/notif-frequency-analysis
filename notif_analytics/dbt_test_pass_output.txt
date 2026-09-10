@@ -1,0 +1,37 @@
+[0m01:24:39  Running with dbt=1.12.3
+[0m01:24:39  [[33mWARNING[0m][CustomKeyInConfigDeprecation]: Deprecated functionality
+Custom key `notif_analytics` found in `config` at path `notif_analytics` in file
+`/Users/lilyshih/notif-frequency-analysis/notif_analytics/dbt_project.yml`.
+Custom config keys should move into the `config.meta`.
+[0m01:24:39  Registered adapter: bigquery=1.12.0
+[0m01:24:40  Found 11 models, 22 data tests, 5 sources, 561 macros
+[0m01:24:40  
+[0m01:24:40  Concurrency: 4 threads (target='dev')
+[0m01:24:40  
+[0m01:24:41  2 of 7 START test not_null_fct_notifications_user_id ........................... [RUN]
+[0m01:24:41  1 of 7 START test not_null_fct_notifications_notification_id ................... [RUN]
+[0m01:24:41  4 of 7 START test not_null_stg_notifications_sent_user_id ...................... [RUN]
+[0m01:24:41  3 of 7 START test not_null_stg_notifications_sent_notification_id .............. [RUN]
+[0m01:24:43  3 of 7 PASS not_null_stg_notifications_sent_notification_id .................... [[32mPASS[0m in 1.82s]
+[0m01:24:43  5 of 7 START test relationships_fct_notifications_user_id__user_id__ref_dim_users_  [RUN]
+[0m01:24:43  1 of 7 PASS not_null_fct_notifications_notification_id ......................... [[32mPASS[0m in 1.85s]
+[0m01:24:43  6 of 7 START test unique_fct_notifications_notification_id ..................... [RUN]
+[0m01:24:43  4 of 7 PASS not_null_stg_notifications_sent_user_id ............................ [[32mPASS[0m in 1.87s]
+[0m01:24:43  7 of 7 START test unique_stg_notifications_sent_notification_id ................ [RUN]
+[0m01:24:43  2 of 7 PASS not_null_fct_notifications_user_id ................................. [[32mPASS[0m in 1.98s]
+[0m01:24:44  7 of 7 PASS unique_stg_notifications_sent_notification_id ...................... [[32mPASS[0m in 1.58s]
+[0m01:24:45  5 of 7 PASS relationships_fct_notifications_user_id__user_id__ref_dim_users_ ... [[32mPASS[0m in 1.90s]
+[0m01:24:45  6 of 7 PASS unique_fct_notifications_notification_id ........................... [[32mPASS[0m in 1.89s]
+[0m01:24:45  
+[0m01:24:45  Finished running 7 data tests in 0 hours 0 minutes and 4.98 seconds (4.98s).
+[0m01:24:45  
+[0m01:24:45  [32mCompleted successfully[0m
+[0m01:24:45  
+[0m01:24:45  Done. PASS=7 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=7
+[0m01:24:45  [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- CustomKeyInConfigDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
