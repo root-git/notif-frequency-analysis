@@ -43,6 +43,7 @@ def generate_events(notifications_df, tiers_df):
             dimissed_at = delivered_at + timedelta(minutes=np.random.randint(1,60))
             events.append({'event_id': f"e_{counter:07d}", 'notification_id':notif_id,
                            'event_type': 'dismissed', 'event_at': dimissed_at.strftime('%Y-%m-%d %H:%M:%S')})
+            counter += 1
 
     return pd.DataFrame(events)
 
