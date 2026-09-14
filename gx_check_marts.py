@@ -1,4 +1,5 @@
 import great_expectations as gx
+import json
 
 context = gx.get_context()
 validator = context.sources.pandas_default.read_csv("fct_notifications.csv")
@@ -15,6 +16,9 @@ validator.expect_column_values_to_be_in_set("was_opened", [True, False])
 validator.expect_column_values_to_be_in_set("was_clicked", [True, False])
 
 results = validator.validate()
+
+with open("gx_results_fct_notifications.json", "w") as f:
+    json.dump(results.to_json_dict(), f, indent=2)
 
 print("Overall success:", results.success)
 print()

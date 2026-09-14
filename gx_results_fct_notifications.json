@@ -1,0 +1,237 @@
+{
+  "success": true,
+  "results": [
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "column": "notification_id",
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_unique",
+        "kwargs": {
+          "column": "notification_id",
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "column": "user_id",
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": []
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_in_set",
+        "kwargs": {
+          "column": "channel",
+          "value_set": [
+            "push",
+            "email",
+            "sms"
+          ],
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_in_set",
+        "kwargs": {
+          "column": "notification_type",
+          "value_set": [
+            "marketing",
+            "transactional",
+            "reminder"
+          ],
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_in_set",
+        "kwargs": {
+          "column": "was_opened",
+          "value_set": [
+            true,
+            false
+          ],
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    },
+    {
+      "success": true,
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_be_in_set",
+        "kwargs": {
+          "column": "was_clicked",
+          "value_set": [
+            true,
+            false
+          ],
+          "batch_id": "default_pandas_datasource-#ephemeral_pandas_asset"
+        },
+        "meta": {}
+      },
+      "result": {
+        "element_count": 56667,
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "partial_unexpected_list": [],
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "unexpected_percent_total": 0.0,
+        "unexpected_percent_nonmissing": 0.0
+      },
+      "meta": {},
+      "exception_info": {
+        "raised_exception": false,
+        "exception_traceback": null,
+        "exception_message": null
+      }
+    }
+  ],
+  "evaluation_parameters": {},
+  "statistics": {
+    "evaluated_expectations": 7,
+    "successful_expectations": 7,
+    "unsuccessful_expectations": 0,
+    "success_percent": 100.0
+  },
+  "meta": {
+    "great_expectations_version": "0.18.22",
+    "expectation_suite_name": "default",
+    "run_id": {
+      "run_name": null,
+      "run_time": "2026-09-13T17:06:14.605946-07:00"
+    },
+    "batch_spec": {
+      "reader_method": "read_csv",
+      "reader_options": {
+        "filepath_or_buffer": "fct_notifications.csv"
+      }
+    },
+    "batch_markers": {
+      "ge_load_time": "20260914T000614.370588Z",
+      "pandas_data_fingerprint": "737fbb32ffb1209704b6f3444032d51c"
+    },
+    "active_batch_definition": {
+      "datasource_name": "default_pandas_datasource",
+      "data_connector_name": "fluent",
+      "data_asset_name": "#ephemeral_pandas_asset",
+      "batch_identifiers": {}
+    },
+    "validation_time": "20260914T000614.605855Z",
+    "checkpoint_name": null
+  }
+}
