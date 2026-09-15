@@ -6,7 +6,7 @@ notif_dbt_project = DbtProject(
     project_dir=Path(__file__).parent.parent.parent / "notif_analytics"
 )
 
-@dbt_asset(manifest=notif_dbt_project.manifest_path)
+@dbt_assets(manifest=notif_dbt_project.manifest_path)
 def notif_dbt_assets(context: AssetExecutionContext, dbt: DbtCliResource):
     yield from dbt.cli(["build"], context=context).stream()
     
